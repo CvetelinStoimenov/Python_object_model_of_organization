@@ -1,0 +1,14 @@
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Virtual environment directories
+venv/
+env/
+
+# Data files
+*.json
+
+# Temporary files
+*.tmp
+*.log
