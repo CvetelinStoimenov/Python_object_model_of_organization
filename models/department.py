@@ -19,7 +19,7 @@ class Department:
     def save_employees(self, filename):
         try:
             with open(filename, 'w') as file:
-                json.dump([manager.to_dict() for manager in self.managers], file)
+                json.dump([manager.to_dict() for manager in self.managers], file, indent=4)
         except Exception as e:
             print(f"Error saving employees: {e}")
 
