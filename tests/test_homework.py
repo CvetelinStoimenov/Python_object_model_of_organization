@@ -340,3 +340,12 @@ class TestDepartment(unittest.TestCase):
 
         # Call the method to give salaries
         department.give_salary()
+
+        printed_output = mock_stdout.getvalue()
+        self.assertIn(printed_output, "John Doe received 3190 money."
+                                      "\nJohn Doe received 1200 money."
+                                      "\nJane Smith received 2660 money."
+                                      "\nCharlie Wilson received 1700 money.\n")
+
+    if __name__ == "__main__":
+        unittest.main()
