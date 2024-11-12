@@ -1,28 +1,30 @@
 from .developer import Developer
-from .designer import Designer
+from .employee import Employee
 
 
-class Manager(Designer):
+class Manager(Employee):
     def __init__(self, first_name, last_name, base_salary, experience, team=None):
-        super().__init__(first_name, last_name, base_salary, experience,
-                         eff_coeff=1.0)  # Assuming no eff_coeff for Managers
-        self.team = team or []
+        super().__init__(first_name, last_name, base_salary, experience)
+        self.team = team or []  # Initialize team as an empty list if not provided
 
     def calculate_salary(self):
-        counted_salary = super().calculate_salary()  # Get salary from Designer (or base logic)
+        # Start with the base salary calculation (inherited from Employee class)
+        salary = super().calculate_salary()
 
         # Apply team size bonuses
-        if len(self.team) > 5:
-            counted_salary += 200
         if len(self.team) > 10:
-            counted_salary += 300
+            salary += 300  # Additional bonus for teams with more than 10 members
+        elif len(self.team) > 5:
+            salary += 200  # Bonus for teams with more than 5 members
 
-        # Apply bonus for having more than half Developers
-        dev_count = sum(isinstance(member, Developer) for member in self.team)
-        if dev_count > len(self.team) / 2:
-            counted_salary *= 1.1  # 10% bonus for more than half being developers
+        # Apply bonus if more than half of the team members are Developers
+        num_developers = sum(1 for member in self.team if isinstance(member, Developer))
 
-        return counted_salary
+        # Only apply the 10% increase if team has more than one member and more than half are developers
+        if len(self.team) > 1 and num_developers > len(self.team) / 2:
+            salary *= 1.1  # Increase by 10% if more than half are Developers
+
+        return round(salary)
 
     def to_dict(self):
         return {

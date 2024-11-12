@@ -12,9 +12,11 @@ class Department:
 
     def give_salary(self):
         for manager in self.managers:
-            print(f"{manager.first_name} {manager.last_name} received {round(manager.calculate_salary())} money.")
+            salary = manager.calculate_salary()
+            print(f"{manager.first_name} {manager.last_name} received {round(salary)} money.")
             for member in manager.team:
-                print(f"{member.first_name} {member.last_name} received {round(member.calculate_salary())} money.")
+                member_salary = member.calculate_salary()
+                print(f"{member.first_name} {member.last_name} received {round(member_salary)} money.")
 
     def save_employees(self, filename):
         try:

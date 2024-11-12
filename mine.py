@@ -6,13 +6,13 @@ from models.department import Department
 def main():
     # Create some Developer and Designer objects
     dev1 = Developer("John", "Doe", 1000, 3)
-    dev2 = Developer("Alice", "Johnson", 1100, 6)
-    designer1 = Designer("Jane", "Smith", 1200, 4, 0.9)
-    designer2 = Designer("Emily", "Davis", 1300, 7, 0.85)
+    dev2 = Developer("Alice", "Johnson", 1000, 6)
+    designer1 = Designer("Jane", "Smith", 1500, 4, 0)
+    designer2 = Designer("Emily", "Davis", 1000, 7, 0.85)
 
     # Create a Manager and assign a team
-    manager1 = Manager("Bob", "Brown", 2000, 6, [dev1, designer1])
-    manager2 = Manager("Charlie", "Wilson", 2500, 8, [dev2, designer2])
+    manager1 = Manager("Bob", "Brown", 1000, 2, [dev1, designer1])
+    manager2 = Manager("Charlie", "Wilson", 1100, 8, [dev2, designer2])
 
     # Create a Department and add managers
     department = Department()
