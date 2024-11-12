@@ -12,6 +12,60 @@ class TestEmployee(unittest.TestCase):
     Unit tests for the Employee class to ensure salary calculation works correctly.
     """
 
+    class TestEmployeeValidation(unittest.TestCase):
+
+        def test_invalid_first_name(self):
+            """
+            Test that an exception is raised if the first name contains non-alphabetic characters.
+            """
+            with self.assertRaises(ValueError) as context:
+                Employee("John123", "Doe", 1000, 5)
+            self.assertEqual(str(context.exception),
+                             "First name must be a non-empty string containing only alphabetic characters.")
+
+        def test_invalid_last_name(self):
+            """
+            Test that an exception is raised if the last name contains non-alphabetic characters.
+            """
+            with self.assertRaises(ValueError) as context:
+                Employee("John", "Doe123", 1000, 5)
+            self.assertEqual(str(context.exception),
+                             "Last name must be a non-empty string containing only alphabetic characters.")
+
+        def test_empty_first_name(self):
+            """
+            Test that an exception is raised if the first name is empty.
+            """
+            with self.assertRaises(ValueError) as context:
+                Employee("", "Doe", 1000, 5)
+            self.assertEqual(str(context.exception),
+                             "First name must be a non-empty string containing only alphabetic characters.")
+
+        def test_empty_last_name(self):
+            """
+            Test that an exception is raised if the last name is empty.
+            """
+            with self.assertRaises(ValueError) as context:
+                Employee("John", "", 1000, 5)
+            self.assertEqual(str(context.exception),
+                             "Last name must be a non-empty string containing only alphabetic characters.")
+
+        def test_invalid_base_salary(self):
+            """
+            Test that an exception is raised if the base salary is a negative number.
+            """
+            with self.assertRaises(ValueError) as context:
+                Employee("John", "Doe", -1000, 5)
+            self.assertEqual(str(context.exception), "Base salary must be a positive number.")
+
+        def test_invalid_experience(self):
+            """
+            Test that an exception is raised if the experience is a negative number.
+            """
+            with self.assertRaises(ValueError) as context:
+                Employee("John", "Doe", 1000, -1)
+            self.assertEqual(str(context.exception), "Experience must be a non-negative number.")
+
     def test_salary_no_experience(self):
         """
         Test salary calculation when the employee has no experience.
@@ -110,12 +164,83 @@ class TestDesigner(unittest.TestCase):
 
         self.assertEqual("Efficiency coefficient must be provided.", str(context.exception))
 
+    def test_invalid_first_name(self):
+        """
+        Test that an exception is raised if the first name contains non-alphabetic characters.
+        """
+        with self.assertRaises(ValueError) as context:
+            Designer("John123", "Doe", 1200, 4, 0.8)
+        self.assertEqual(str(context.exception), "First name must be a non-empty string containing only alphabetic characters.")
+
+    def test_invalid_last_name(self):
+        """
+        Test that an exception is raised if the last name contains non-alphabetic characters.
+        """
+        with self.assertRaises(ValueError) as context:
+            Designer("John", "Doe123", 1200, 4, 0.8)
+        self.assertEqual(str(context.exception), "Last name must be a non-empty string containing only alphabetic characters.")
+
+    def test_invalid_base_salary(self):
+        """
+        Test that an exception is raised if the base salary is a negative number.
+        """
+        with self.assertRaises(ValueError) as context:
+            Designer("John", "Doe", -1200, 4, 0.8)
+        self.assertEqual(str(context.exception), "Base salary must be a positive number.")
+
+    def test_invalid_experience(self):
+        """
+        Test that an exception is raised if the experience is a negative number.
+        """
+        with self.assertRaises(ValueError) as context:
+            Designer("John", "Doe", 1200, -4, 0.8)
+        self.assertEqual(str(context.exception), "Experience must be a non-negative number.")
 
 class TestManager(unittest.TestCase):
     """
     Unit tests for the Manager class to ensure salary calculation works correctly,
     considering team size and developer count.
     """
+
+    def test_invalid_first_name(self):
+        """
+        Test that an exception is raised if the first name contains non-alphabetic characters.
+        """
+        with self.assertRaises(ValueError) as context:
+            Manager("John123", "Doe", 2000, 5, [])
+        self.assertEqual(str(context.exception), "First name must be a non-empty string containing only alphabetic characters.")
+
+    def test_invalid_last_name(self):
+        """
+        Test that an exception is raised if the last name contains non-alphabetic characters.
+        """
+        with self.assertRaises(ValueError) as context:
+            Manager("John", "Doe123", 2000, 5, [])
+        self.assertEqual(str(context.exception), "Last name must be a non-empty string containing only alphabetic characters.")
+
+    def test_invalid_base_salary(self):
+        """
+        Test that an exception is raised if the base salary is a negative number.
+        """
+        with self.assertRaises(ValueError) as context:
+            Manager("John", "Doe", -2000, 5, [])
+        self.assertEqual(str(context.exception), "Base salary must be a positive number.")
+
+    def test_invalid_experience(self):
+        """
+        Test that an exception is raised if the experience is a negative number.
+        """
+        with self.assertRaises(ValueError) as context:
+            Manager("John", "Doe", 2000, -5, [])
+        self.assertEqual(str(context.exception), "Experience must be a non-negative number.")
+
+    def test_invalid_team_member(self):
+        """
+        Test that an exception is raised if a team member is not an instance of Employee (or subclass).
+        """
+        with self.assertRaises(ValueError) as context:
+            Manager("John", "Doe", 2000, 5, ["invalid_member"])  # Team member not an instance of Employee
+        self.assertEqual(str(context.exception), "All team members must be instances of Employee (or subclass).")
 
     def test_manager_with_no_team(self):
         """

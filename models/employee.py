@@ -14,6 +14,22 @@ class Employee:
         base_salary (float): The base salary of the employee before any adjustments.
         experience (int): The number of years of experience the employee has.
         """
+
+        # Validate first_name and last_name to be non-empty and alphabetic
+        if not first_name or not first_name.isalpha():
+            raise ValueError("First name must be a non-empty string containing only alphabetic characters.")
+
+        if not last_name or not last_name.isalpha():
+            raise ValueError("Last name must be a non-empty string containing only alphabetic characters.")
+
+        # Validate base_salary to be a positive number
+        if base_salary <= 0:
+            raise ValueError("Base salary must be a positive number.")
+
+        # Validate experience to be a non-negative integer
+        if experience < 0:
+            raise ValueError("Experience must be a non-negative number.")
+
         self.first_name = first_name
         self.last_name = last_name
         self.base_salary = base_salary

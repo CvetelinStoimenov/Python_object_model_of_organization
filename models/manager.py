@@ -21,8 +21,14 @@ class Manager(Employee):
         team (list, optional): A list of team members (Employees, Developers, etc.), default is an empty list.
 
         """
+
         # Initialize the parent Employee class with the basic details
         super().__init__(first_name, last_name, base_salary, experience)
+
+        # Validating Team Members in Manager
+        if team is not None:
+            if not all(isinstance(member, Employee) for member in team):
+                raise ValueError("All team members must be instances of Employee (or subclass).")
 
         # Set the manager's team (defaults to an empty list if no team is provided)
         self.team = team or []
