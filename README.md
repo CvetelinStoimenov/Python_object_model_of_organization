@@ -97,14 +97,17 @@ organization-management-system/
 │   ├── designer.py          # Designer class
 │   ├── manager.py           # Manager class
 │   └── department.py        # Department management logic
-├── data/
-│   └── employees.json       # File to store employee data
+├── .github
+│   └── workflows
+│       └── ci.yml           # CI/CD- GitHub Actions file
 ├── tests/
 │   └── test_homework.py     # Unit tests for the system
 ├── .gitignore               # Git ignore file
+├── .dockerignore            # Docker ignore file
 ├── README.md                # Project documentation
 ├── requirements.txt         # Project dependencies
-└── main.py                  # Main script to execute the program` 
+├── docker-compose.yml       # Docker Compose file for running the application
+└── main.py                  # Main script to execute the program
 
 ```
 
