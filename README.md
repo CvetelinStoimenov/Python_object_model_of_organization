@@ -54,8 +54,8 @@ This project simulates an organization structure, focusing on various types of e
 
 To run the application, use the following command:
 
-
-`python main.py` 
+#
+    python main.py
 
 This will execute the default functionality, which includes managing employees and calculating their salaries based on their roles and experience.
 
@@ -64,7 +64,8 @@ This will execute the default functionality, which includes managing employees a
 To run the tests, you can use the following command:
 
 
-`python -m unittest discover` 
+#
+    python -m unittest discover
 
 This will automatically discover and run all the tests in the `tests/` directory.
 
@@ -74,13 +75,13 @@ This will automatically discover and run all the tests in the `tests/` directory
 If you'd like to run the application inside a Docker container, follow these steps:
 
 1.  **Build the Docker image**:
-    
-    `docker build -t yourusername/organization-app .` 
+#
+    docker build -t yourusername/organization-app .
     
 2.  **Run the Docker container**:
-
+#
     
-    `docker run -it yourusername/organization-app:latest` 
+    docker run -it yourusername/organization-app:latest
     
 
 This will run the application inside a container, providing the same functionality as running it natively.
@@ -114,20 +115,20 @@ The project has been containerized using Docker to ensure easy deployment. It in
 #### Docker Commands
 
 -   **Build the Docker image**:
-
-    `docker build -t yourusername/organization-app .` 
+#
+    docker build -t yourusername/organization-app .
     
 -   **Run the Docker container**:
-
+#
     
-    `docker run -it yourusername/organization-app:latest` 
+    docker run -it yourusername/organization-app:latest
     
 -   **Push the image to Docker Hub**:
     
     If you want to push the Docker image to Docker Hub, use the following command:
-
+#
     
-    `docker push yourusername/organization-app:latest` 
+    docker push yourusername/organization-app:latest
     
 
 ## CI/CD with GitHub Actions
