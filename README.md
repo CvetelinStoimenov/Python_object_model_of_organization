@@ -42,20 +42,24 @@ This project simulates an organization structure, focusing on various types of e
 1.  Clone the repository:
     
 #
+```bash
     git clone https://github.com/CvetelinStoimenov/Python_object_model_of_organization
     cd organization-management-system
-    
+```
 2.  Install required dependencies (if any) from `requirements.txt`:
 # 
+```bash
       pip install -r requirements.txt/text here
-    
+```    
 3. (Optional) If you want to run the application in a containerized environment, follow the Docker instructions below.
 ### Running the Application
 
 To run the application, use the following command:
 
 #
+```bash
     python main.py
+```
 
 This will execute the default functionality, which includes managing employees and calculating their salaries based on their roles and experience.
 
@@ -65,8 +69,9 @@ To run the tests, you can use the following command:
 
 
 #
+```bash
     python -m unittest discover
-
+```
 This will automatically discover and run all the tests in the `tests/` directory.
 
 
@@ -76,20 +81,21 @@ If you'd like to run the application inside a Docker container, follow these ste
 
 1.  **Build the Docker image**:
 #
+```bash
     docker build -t yourusername/organization-app .
-    
+```
 2.  **Run the Docker container**:
 #
-    
+  ```bash
     docker run -it yourusername/organization-app:latest
-    
+  ```
 
 This will run the application inside a container, providing the same functionality as running it natively.
 
 ## Directory Structure
 
 
-```
+```perl
 organization-management-system/
 ├── models/
 │   ├── employee.py          # Employee class and related logic
@@ -119,20 +125,21 @@ The project has been containerized using Docker to ensure easy deployment. It in
 
 -   **Build the Docker image**:
 #
+```bash
     docker build -t yourusername/organization-app .
-    
+```    
 -   **Run the Docker container**:
 #
-    
+```bash  
     docker run -it yourusername/organization-app:latest
-    
+```    
 -   **Push the image to Docker Hub**:
     
     If you want to push the Docker image to Docker Hub, use the following command:
 #
-    
+```bash 
     docker push yourusername/organization-app:latest
-    
+``` 
 
 ## CI/CD with GitHub Actions
 
