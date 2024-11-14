@@ -126,19 +126,19 @@ The project has been containerized using Docker to ensure easy deployment. It in
 -   **Build the Docker image**:
 #
 ```bash
-    docker build -t yourusername/organization-app .
+    docker build -t mishenata/github_python_object_model_of_organization .
 ```    
 -   **Run the Docker container**:
 #
 ```bash  
-    docker run -it yourusername/organization-app:latest
+    docker run -it mishenata/github_python_object_model_of_organization:latest
 ```    
 -   **Push the image to Docker Hub**:
     
     If you want to push the Docker image to Docker Hub, use the following command:
 #
 ```bash 
-    docker push yourusername/organization-app:latest
+    docker push mishenata/github_python_object_model_of_organization:latest
 ``` 
 
 ## CI/CD with GitHub Actions
